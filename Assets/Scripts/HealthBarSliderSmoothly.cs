@@ -5,19 +5,19 @@ public class HealthBarSliderSmoothly : MonoBehaviour
 {
     [SerializeField] private Slider _healthSlider;
 
-    [SerializeField] private Health _player;
+    [SerializeField] private Health _health;
 
     private float targetSliderValue = 1;
 
 
     private void OnEnable()
     {
-        _player.ChangeHealth += OnHealthChanged;
+        _health.ChangeHealth += OnHealthChanged;
     }
 
     private void OnDisable()
     {
-        _player.ChangeHealth -= OnHealthChanged;
+        _health.ChangeHealth -= OnHealthChanged;
     }
 
     private void Update()
