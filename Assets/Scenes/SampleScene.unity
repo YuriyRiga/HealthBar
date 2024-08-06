@@ -1157,7 +1157,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: New Text
+  m_text: 100/100
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1392,7 +1392,7 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 0.451
+  m_Value: 1
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -1792,7 +1792,7 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 0.451
+  m_Value: 1
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -1939,8 +1939,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22fbc9919b5c4a24fb985223441312f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _currentHealth: 0
-  _maxHealth: 0
   _healthText: {fileID: 881153327}
   _player: {fileID: 2093751385}
 --- !u!114 &2093751385
@@ -1986,8 +1984,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1544de4a79929744d93bdf0a3b781b97, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _currentHealth: 0
-  _maxHealth: 0
   _healthSlider: {fileID: 1478628576}
   _player: {fileID: 2093751385}
 --- !u!114 &2093751388
@@ -2002,8 +1998,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b93c06e93ed0d5345933314a8e6fd7f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _currentHealth: 0
-  _maxHealth: 0
   _healthSlider: {fileID: 988731108}
   _player: {fileID: 2093751385}
 --- !u!1660057539 &9223372036854775807

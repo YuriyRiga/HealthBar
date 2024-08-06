@@ -1,17 +1,12 @@
 ﻿using System;
 using UnityEngine;
 
-public class Player : MonoBehaviour
+public class Health : MonoBehaviour
 {
     [SerializeField] private float _health = 100f;
     [SerializeField] private float _maxhealth = 100f;
-    [SerializeField] private float _damage = 25f;
-    [SerializeField] private Animator _animator;
 
-    public event Action ChangeHealth;
-    public float Damage => _damage;
-    public float Health => _health;
-    public float MaxHealth => _maxhealth;
+    public event Action<float,float> ChangeHealth;
 
     public void TakeDamage(float damage)
     {
@@ -25,7 +20,7 @@ public class Player : MonoBehaviour
             _health = 0;
         }
 
-        ChangeHealth.Invoke();
+        ChangeHealth.Invoke(_health,_maxhealth);
     }
 
     public void TakeHeal(float heal)
@@ -37,6 +32,6 @@ public class Player : MonoBehaviour
             _health = _maxhealth;
         }
 
-        ChangeHealth.Invoke();
+        ChangeHealth.Invoke(_health, _maxhealth);
     }
 }

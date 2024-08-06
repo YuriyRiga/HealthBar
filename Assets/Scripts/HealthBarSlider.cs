@@ -3,32 +3,22 @@ using UnityEngine.UI;
 
 public class HealthBarSlider : MonoBehaviour
 {
-    [SerializeField] private float _currentHealth;
-    [SerializeField] private float _maxHealth;
     [SerializeField] private Slider _healthSlider;
 
-    [SerializeField] private Player _player;
+    [SerializeField] private Health _player;
 
-    private void Awake()
-    {
-        SetHealthSlider();
-    }
-    
     private void OnEnable()
     {
-        _player.ChangeHealth += SetHealthSlider;
+        _player.ChangeHealth += OnHealthChanged;
     }
 
     private void OnDisable()
     {
-        _player.ChangeHealth -= SetHealthSlider;
+        _player.ChangeHealth -= OnHealthChanged;
     }
 
-    private void SetHealthSlider()
+    private void OnHealthChanged(float health, float maxhealth)
     {
-        _currentHealth = _player.Health;
-        _maxHealth = _player.MaxHealth;
-
-       _healthSlider.value = _currentHealth / _maxHealth;
+       _healthSlider.value = health / maxhealth;
     }
 }

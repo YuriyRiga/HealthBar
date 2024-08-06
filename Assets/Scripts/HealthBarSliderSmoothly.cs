@@ -3,32 +3,30 @@ using UnityEngine.UI;
 
 public class HealthBarSliderSmoothly : MonoBehaviour
 {
-    [SerializeField] private float _currentHealth;
-    [SerializeField] private float _maxHealth;
     [SerializeField] private Slider _healthSlider;
 
-    [SerializeField] private Player _player;
-    
+    [SerializeField] private Health _player;
+
+    private float targetSliderValue = 1;
+
+
     private void OnEnable()
     {
-        _player.ChangeHealth += SetHealthSlider;
+        _player.ChangeHealth += OnHealthChanged;
     }
 
     private void OnDisable()
     {
-        _player.ChangeHealth -= SetHealthSlider;
+        _player.ChangeHealth -= OnHealthChanged;
     }
 
     private void Update()
     {
-        SetHealthSlider();
+        _healthSlider.value = Mathf.MoveTowards(_healthSlider.value, targetSliderValue, Time.deltaTime);
     }
 
-    private void SetHealthSlider()
+    private void OnHealthChanged(float health, float maxhealth)
     {
-        float currentSliderValue = _healthSlider.value;
-        float targetSliderValue = _player.Health / _player.MaxHealth;
-
-        _healthSlider.value = Mathf.MoveTowards(currentSliderValue, targetSliderValue, Time.deltaTime);
+        targetSliderValue = health / maxhealth;
     }
 }
