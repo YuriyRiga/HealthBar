@@ -25,7 +25,10 @@ public class Health : MonoBehaviour
 
     public void TakeHeal(float heal)
     {
-        _health += heal;
+        if (heal > 0)
+        {
+            _health += heal;
+        }
 
         if (_health >= _maxhealth)
         {

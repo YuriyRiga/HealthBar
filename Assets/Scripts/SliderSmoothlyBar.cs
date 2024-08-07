@@ -6,12 +6,12 @@ public class SliderSmoothlyBar : HealthBar
 {
     [SerializeField] private Slider _healthSlider;
 
-    private float targetSliderValue = 1;
+    private float _targetSliderValue = 1;
     private Coroutine _smoothFillCoroutine;
 
     protected override void OnHealthChanged(float health, float maxhealth)
     {
-        targetSliderValue = health / maxhealth;
+        _targetSliderValue = health / maxhealth;
 
         if (_smoothFillCoroutine != null)
         {
@@ -23,9 +23,9 @@ public class SliderSmoothlyBar : HealthBar
 
     private IEnumerator SmoothFill()
     {
-        while (_healthSlider.value != targetSliderValue)
+        while (_healthSlider.value != _targetSliderValue)
         {
-            _healthSlider.value = Mathf.MoveTowards(_healthSlider.value, targetSliderValue, Time.deltaTime);
+            _healthSlider.value = Mathf.MoveTowards(_healthSlider.value, _targetSliderValue, Time.deltaTime);
             yield return null;
         }
 
